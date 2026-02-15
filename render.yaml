@@ -1,7 +1,7 @@
 services:
   - type: web
     name: zoonpark
-    env: java
+    runtime: java
     plan: free
     rootDir: backend
     buildCommand: mvn clean package
