@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: zoonpark
-    runtime: java
-    plan: free
-    rootDir: backend
-    buildCommand: mvn clean package
-    startCommand: java -jar target/parking-booking-backend-1.0.0.jar
