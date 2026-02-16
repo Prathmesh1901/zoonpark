@@ -1,26 +1,26 @@
 /* Modern Dark Theme Variables */
 :root {
   /* Colors */
-  --bg-primary: #412653;
-  --bg-secondary: #3F567F;
-  --bg-tertiary: #52668b;
+  --bg-primary: #2F3020;
+  --bg-secondary: #596235;
+  --bg-tertiary: #3d3e2a;
 
-  --text-primary: #FFFFFF;
-  --text-secondary: #d1d5db;
-  --text-muted: #94a3b8;
+  --text-primary: #CDCBD6;
+  --text-secondary: #a8abbd;
+  --text-muted: #7c7e6a;
 
-  --primary: #E0563F;
-  --primary-hover: #c54832;
-  --secondary: #3F567F;
-  --accent: #D174D2;
+  --primary: #D96846;
+  --primary-hover: #bc5538;
+  --secondary: #596235;
+  --accent: #596235;
   --danger: #ef4444;
   --success: #22c55e;
   --warning: #f59e0b;
 
   /* Glassmorphism */
-  --glass-bg: rgba(65, 38, 83, 0.7);
+  --glass-bg: rgba(47, 48, 32, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 
   /* Spacing & Radius */
   --radius-sm: 0.375rem;
@@ -149,13 +149,13 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--primary), var(--bg-secondary));
   color: white;
-  box-shadow: 0 4px 15px rgba(224, 86, 63, 0.4);
+  box-shadow: 0 4px 15px rgba(217, 104, 70, 0.4);
 }
 
 .btn-primary:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(224, 86, 63, 0.6);
+  box-shadow: 0 6px 20px rgba(217, 104, 70, 0.6);
   transform: translateY(-1px);
 }
 
@@ -263,7 +263,7 @@ textarea:focus {
 .hero-section {
   text-align: center;
   padding: 6rem 1rem;
-  background: radial-gradient(circle at top, rgba(209, 116, 210, 0.15), transparent 60%);
+  background: radial-gradient(circle at top, rgba(217, 104, 70, 0.15), transparent 60%);
 }
 
 .hero-title {
@@ -271,7 +271,7 @@ textarea:focus {
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  background: linear-gradient(to right, #ffffff, #D174D2);
+  background: linear-gradient(to right, #CDCBD6, #D96846);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -417,7 +417,7 @@ textarea:focus {
 .offer-icon {
   width: 60px;
   height: 60px;
-  background: rgba(224, 86, 63, 0.1);
+  background: rgba(217, 104, 70, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
