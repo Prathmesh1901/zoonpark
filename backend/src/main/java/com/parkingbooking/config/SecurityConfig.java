@@ -130,47 +130,32 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // Disable CSRF (not needed for JWT-based APIs)
                 .csrf(csrf -> csrf.disable())
-
-                // Enable CORS
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
-                // Configure authorization rules
                 .authorizeHttpRequests(auth -> auth
-                        // Public endpoints (no authentication required)
+                        // Allow preflight requests
+                        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+
+                        // Public endpoints
                         .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/parking-spaces").permitAll() // Allow
-                                                                                                                 // search
-                                                                                                                 // for
-                                                                                                                 // everyone
-                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/parking-spaces/{id}").permitAll() // Allow
-                                                                                                                      // viewing
-                                                                                                                      // details
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/parking-spaces").permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/parking-spaces/{id}").permitAll()
 
-                        // Admin-only endpoints
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-
-                        // Owner-only endpoints
                         .requestMatchers("/parking-spaces/my-spaces").hasRole("OWNER")
                         .requestMatchers(org.springframework.http.HttpMethod.POST, "/parking-spaces").hasRole("OWNER")
                         .requestMatchers(org.springframework.http.HttpMethod.PUT, "/parking-spaces/**").hasRole("OWNER")
                         .requestMatchers(org.springframework.http.HttpMethod.DELETE, "/parking-spaces/**")
                         .hasRole("OWNER")
 
-                        // All other endpoints require authentication
                         .anyRequest().authenticated())
 
-                // Stateless session (no server-side sessions)
-                // Each request must include JWT token
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
-                // Set authentication provider
                 .authenticationProvider(authenticationProvider())
-
-                // Add JWT filter before Spring Security's authentication filter
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
 }
