@@ -1,26 +1,26 @@
 /* Modern Dark Theme Variables */
 :root {
   /* Colors */
-  --bg-primary: #0C3C01;
-  --bg-secondary: #2E2D1D;
-  --bg-tertiary: #5B6D49;
+  --bg-primary: #18191B;
+  --bg-secondary: #004953;
+  --bg-tertiary: #00606d;
 
-  --text-primary: #F1F2ED;
-  --text-secondary: #A2AC82;
-  --text-muted: #5B6D49;
+  --text-primary: #F0F0F0;
+  --text-secondary: #b0b3b8;
+  --text-muted: #848689;
 
-  --primary: #5B6D49;
-  --primary-hover: #4a593c;
-  --secondary: #2E2D1D;
-  --accent: #A2AC82;
+  --primary: #00FF80;
+  --primary-hover: #00e673;
+  --secondary: #004953;
+  --accent: #8F40FF;
   --danger: #ef4444;
   --success: #22c55e;
   --warning: #f59e0b;
 
   /* Glassmorphism */
-  --glass-bg: rgba(12, 60, 1, 0.7);
+  --glass-bg: rgba(24, 25, 27, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 
   /* Spacing & Radius */
   --radius-sm: 0.375rem;
@@ -150,12 +150,12 @@ button {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: white;
-  box-shadow: 0 4px 15px rgba(91, 109, 73, 0.4);
+  color: #18191B;
+  box-shadow: 0 4px 15px rgba(0, 255, 128, 0.3);
 }
 
 .btn-primary:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(91, 109, 73, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 255, 128, 0.5);
   transform: translateY(-1px);
 }
 
@@ -263,7 +263,7 @@ textarea:focus {
 .hero-section {
   text-align: center;
   padding: 6rem 1rem;
-  background: radial-gradient(circle at top, rgba(162, 172, 130, 0.15), transparent 60%);
+  background: radial-gradient(circle at top, rgba(143, 64, 255, 0.15), transparent 60%);
 }
 
 .hero-title {
@@ -271,7 +271,7 @@ textarea:focus {
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  background: linear-gradient(to right, #F1F2ED, #A2AC82);
+  background: linear-gradient(to right, #00FF80, #8F40FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -417,12 +417,12 @@ textarea:focus {
 .offer-icon {
   width: 60px;
   height: 60px;
-  background: rgba(162, 172, 130, 0.1);
+  background: rgba(0, 255, 128, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent);
+  color: var(--primary);
   font-size: 1.5rem;
 }
 
