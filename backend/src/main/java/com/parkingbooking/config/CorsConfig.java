@@ -24,8 +24,8 @@ public class CorsConfig implements WebMvcConfigurer {
                 // Allow requests from frontend development servers
                 .allowedOrigins(
                         "http://localhost:5173", // Vite default port
-                        "http://localhost:3000" // React default port
-                )
+                        "http://localhost:3000", // React default port
+                        "https://zoonpark.vercel.app")
                 // Allow all common HTTP methods
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
                 // Allow all headers
