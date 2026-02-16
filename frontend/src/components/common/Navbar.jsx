@@ -7,7 +7,7 @@ import {
     FiLogOut, FiMap, FiMenu, FiX, FiGrid
 } from 'react-icons/fi';
 import { FaCarSide } from 'react-icons/fa';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logg.png';
 
 /**
  * Modern Navbar Component

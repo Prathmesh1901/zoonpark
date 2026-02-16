@@ -5,7 +5,7 @@ import {
     FiSearch, FiCalendar, FiCreditCard, FiMapPin, FiArrowRight,
     FiPercent, FiHelpCircle, FiChevronDown, FiChevronUp, FiInstagram, FiTwitter, FiFacebook, FiLinkedin
 } from 'react-icons/fi';
-import logo from '../assets/logo.png';
+import logo from '../assets/logg.png';
 
 const Home = () => {
     const containerVariants = {
