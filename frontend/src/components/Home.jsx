@@ -25,7 +25,8 @@ const Home = () => {
         <motion.div
             className="home-container"
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
         >
             {/* Hero Section */}
@@ -49,8 +50,8 @@ const Home = () => {
 
             {/* Trending Offers */}
             <div className="section-container" style={{ padding: '0 2rem' }}>
-                <motion.h2 variants={itemVariants} className="section-title">Trending Offers</motion.h2>
-                <motion.div className="offers-grid" variants={containerVariants}>
+                <motion.h2 variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} className="section-title">Trending Offers</motion.h2>
+                <motion.div className="offers-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }}>
                     <div className="offer-card">
                         <div className="offer-icon"><FiPercent /></div>
                         <div className="offer-content">
@@ -80,8 +81,8 @@ const Home = () => {
 
             {/* Features Section */}
             <div className="features-section">
-                <motion.h2 variants={itemVariants} className="section-title">Why Choose ZoomPark?</motion.h2>
-                <motion.div className="features-grid" variants={containerVariants}>
+                <motion.h2 variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} className="section-title">Why Choose ZoomPark?</motion.h2>
+                <motion.div className="features-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }}>
                     <FeatureCard icon={<FiSearch />} title="Smart Search" desc="Find available spaces nearby instantly with real-time availability." />
                     <FeatureCard icon={<FiCalendar />} title="Easy Booking" desc="Reserve your spot in advance. No more circling the block." />
                     <FeatureCard icon={<FiCreditCard />} title="Secure Payment" desc="Transparent pricing with no hidden fees. Pay securely online." />
@@ -91,8 +92,8 @@ const Home = () => {
 
             {/* Top Locations */}
             <div className="section-container" style={{ padding: '0 2rem' }}>
-                <motion.h2 variants={itemVariants} className="section-title">Zoom Around India</motion.h2>
-                <motion.div className="cities-grid" variants={containerVariants}>
+                <motion.h2 variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} className="section-title">Zoom Around India</motion.h2>
+                <motion.div className="cities-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }}>
                     {['Bangalore', 'Mumbai', 'Delhi', 'Pune', 'Hyderabad', 'Chennai'].map(city => (
                         <div key={city} className="city-card">
                             <img
@@ -110,7 +111,7 @@ const Home = () => {
 
             {/* FAQ Section */}
             <div className="faq-section">
-                <motion.h2 variants={itemVariants} className="section-title">Frequently Asked Questions</motion.h2>
+                <motion.h2 variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} className="section-title">Frequently Asked Questions</motion.h2>
                 <FAQItem question="How do I book a parking spot?" answer="Simply search for your location, choose a spot, select your time, and pay securely online. You'll receive a digital pass instantly." />
                 <FAQItem question="Can I cancel my booking?" answer="Yes! You can cancel up to 1 hour before your booking time for a full refund." />
                 <FAQItem question="Is my vehicle safe?" answer="We verify all our parking hosts. Many locations also offer CCTV surveillance and security guards." />
@@ -118,7 +119,7 @@ const Home = () => {
             </div>
 
             {/* CTA Section */}
-            <motion.div className="cta-section text-center" variants={itemVariants}>
+            <motion.div className="cta-section text-center" variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}>
                 <h2>Have an empty parking space?</h2>
                 <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)' }}>
                     Turn your unused driveway or garage into passive income.
@@ -188,6 +189,10 @@ const FeatureCard = ({ icon, title, desc }) => {
     return (
         <motion.div
             className="feature-card"
+            variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            }}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
         >
             <div className="feature-icon" style={{ color: 'var(--primary)', fontSize: '2.5rem', marginBottom: '1rem' }}>

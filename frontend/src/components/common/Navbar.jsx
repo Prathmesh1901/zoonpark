@@ -57,10 +57,7 @@ const Navbar = () => {
                         alt="ZoomPark"
                         style={{
                             height: '40px',
-                            objectFit: 'contain',
-                            background: 'white',
-                            padding: '4px',
-                            borderRadius: '8px'
+                            objectFit: 'contain'
                         }}
                     />
                 </Link>
