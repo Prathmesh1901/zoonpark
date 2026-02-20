@@ -56,7 +56,7 @@ const Navbar = () => {
                         src={logo}
                         alt="ZoomPark"
                         style={{
-                            height: '40px',
+                            height: '48px',
                             objectFit: 'contain'
                         }}
                     />

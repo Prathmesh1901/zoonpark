@@ -56,14 +56,6 @@ const Login = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{
-                    background: 'var(--bg-secondary)',
-                    border: '1px solid var(--glass-border)',
-                    boxShadow: 'var(--glass-shadow)',
-                    maxWidth: '450px',
-                    width: '100%',
-                    margin: '0 auto'
-                }}
             >
                 <div className="text-center mb-4">
                     <div style={{

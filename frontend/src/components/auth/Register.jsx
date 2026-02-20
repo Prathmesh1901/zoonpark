@@ -55,18 +55,10 @@ const Register = () => {
     return (
         <div className="auth-container">
             <motion.div
-                className="auth-card"
+                className="auth-card register"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{
-                    background: 'var(--bg-secondary)',
-                    border: '1px solid var(--glass-border)',
-                    boxShadow: 'var(--glass-shadow)',
-                    maxWidth: '500px',
-                    width: '100%',
-                    margin: '0 auto'
-                }}
             >
                 <div className="text-center mb-4">
                     <div style={{
