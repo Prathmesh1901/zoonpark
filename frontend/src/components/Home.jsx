@@ -6,6 +6,7 @@ import {
     FiPercent, FiHelpCircle, FiChevronDown, FiChevronUp, FiInstagram, FiTwitter, FiFacebook, FiLinkedin
 } from 'react-icons/fi';
 import logo from '../assets/logg.png';
+import { TextHoverEffect } from '@/components/ui/text-hover-effect';
 
 const Home = () => {
     const containerVariants = {
@@ -46,6 +47,10 @@ const Home = () => {
                         Get Started <FiArrowRight />
                     </Link>
                 </motion.div>
+            </motion.div>
+
+            <motion.div className="brand-hover-section" variants={itemVariants}>
+                <TextHoverEffect text="ZOOMPARK" />
             </motion.div>
 
             {/* Trending Offers */}
