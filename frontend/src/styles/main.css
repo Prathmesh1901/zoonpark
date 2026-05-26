@@ -400,6 +400,13 @@ textarea:focus {
   padding: 6rem 1rem;
   background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%);
   border-bottom: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section>*:not(.background-ripple-effect) {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
@@ -457,6 +464,46 @@ textarea:focus {
   fill: #0F172A;
   stroke: #2563EB;
   stroke-width: 1.2;
+}
+
+.background-ripple-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1.25rem;
+  opacity: 0.9;
+}
+
+.ripple-grid {
+  width: min(100%, 980px);
+  height: 22rem;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  pointer-events: auto;
+  mask-image: radial-gradient(circle at center, black 0%, black 58%, transparent 84%);
+}
+
+.ripple-cell {
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  background: rgba(37, 99, 235, 0.025);
+  transition:
+    background-color 420ms ease var(--ripple-delay),
+    border-color 420ms ease var(--ripple-delay),
+    transform 420ms ease var(--ripple-delay),
+    opacity 420ms ease var(--ripple-delay);
+  opacity: 0.55;
+}
+
+.ripple-grid:hover .ripple-cell {
+  background: rgba(37, 99, 235, var(--ripple-opacity));
+  border-color: rgba(15, 23, 42, 0.12);
+  transform: scale(1.03);
+  opacity: 1;
 }
 
 /* Grids */

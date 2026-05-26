@@ -7,6 +7,7 @@ import {
 } from 'react-icons/fi';
 import logo from '../assets/logg.png';
 import { TextHoverEffect } from '@/components/ui/text-hover-effect';
+import { BackgroundRippleEffect } from '@/components/ui/background-ripple-effect';
 
 const Home = () => {
     const containerVariants = {
@@ -32,6 +33,7 @@ const Home = () => {
         >
             {/* Hero Section */}
             <motion.div className="hero-section" variants={itemVariants}>
+                <BackgroundRippleEffect />
                 <motion.h1 className="hero-title">
                     Parking Made <span style={{ color: 'var(--primary)' }}>Simple</span>
                 </motion.h1>
@@ -120,20 +122,8 @@ const Home = () => {
                 <FAQItem question="How do I book a parking spot?" answer="Simply search for your location, choose a spot, select your time, and pay securely online. You'll receive a digital pass instantly." />
                 <FAQItem question="Can I cancel my booking?" answer="Yes! You can cancel up to 1 hour before your booking time for a full refund." />
                 <FAQItem question="Is my vehicle safe?" answer="We verify all our parking hosts. Many locations also offer CCTV surveillance and security guards." />
-                <FAQItem question="How do I list my parking space?" answer="Click on 'Become a Host', register your details, upload photos of your spot, and start earning effortlessly." />
+                <FAQItem question="How do I list my parking space?" answer="Create or log in to your account, choose 'List my parking space', then add your spot details from the owner dashboard." />
             </div>
-
-            {/* CTA Section */}
-            <motion.div className="cta-section text-center" variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}>
-                <h2>Have an empty parking space?</h2>
-                <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)' }}>
-                    Turn your unused driveway or garage into passive income.
-                    Join thousands of owners earning today.
-                </p>
-                <Link to="/register" className="btn btn-primary btn-large">
-                    Become a Host
-                </Link>
-            </motion.div>
 
             {/* Footer */}
             <footer className="footer">
