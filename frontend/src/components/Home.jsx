@@ -137,13 +137,7 @@ const Home = () => {
                         <img
                             src={logo}
                             alt="ZoomPark"
-                            style={{
-                                height: '40px',
-                                marginBottom: '1.5rem',
-                                background: 'white',
-                                padding: '4px',
-                                borderRadius: '8px'
-                            }}
+                            className="footer-logo"
                         />
                         <p style={{ color: 'var(--text-secondary)', maxWidth: '300px' }}>
                             Founded in 2024, ZoomPark is India's leading parking marketplace connecting drivers with secure parking spots.

@@ -55,10 +55,7 @@ const Navbar = () => {
                     <img
                         src={logo}
                         alt="ZoomPark"
-                        style={{
-                            height: '48px',
-                            objectFit: 'contain'
-                        }}
+                        className="nav-logo-img"
                     />
                 </Link>
 

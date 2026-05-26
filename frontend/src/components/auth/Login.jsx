@@ -35,10 +35,8 @@ const Login = () => {
 
             if (userData.role === 'ADMIN') {
                 navigate('/admin/dashboard');
-            } else if (userData.role === 'OWNER') {
-                navigate('/owner/dashboard');
             } else {
-                navigate('/dashboard');
+                navigate('/choose-role');
             }
         } catch (err) {
             console.error('Login error:', err);

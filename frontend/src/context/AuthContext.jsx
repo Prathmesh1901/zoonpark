@@ -64,6 +64,12 @@ export const AuthProvider = ({ children }) => {
         return newUser;
     };
 
+    const updateRole = async (role) => {
+        const updatedUser = await authService.updateRole(role);
+        setUser(updatedUser);
+        return updatedUser;
+    };
+
     /**
      * Logout function
      */
@@ -96,6 +102,7 @@ export const AuthProvider = ({ children }) => {
         loading,
         login,
         register,
+        updateRole,
         logout,
         isAuthenticated,
         hasRole

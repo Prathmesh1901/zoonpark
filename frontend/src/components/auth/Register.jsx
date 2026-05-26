@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 import { FiUser, FiMail, FiLock, FiPhone, FiUserCheck, FiAlertCircle, FiArrowRight } from 'react-icons/fi';
 import { useAuth } from '../../context/AuthContext';
 
-/**
- * Modern Register Component
- */
 const Register = () => {
     const [formData, setFormData] = useState({
         email: '',
@@ -35,14 +32,7 @@ const Register = () => {
 
         try {
             await register(formData);
-
-            // Redirect based on role
-            if (formData.role === 'OWNER') {
-                alert('Registration successful! Your account is pending admin approval.');
-                navigate('/owner/dashboard');
-            } else {
-                navigate('/dashboard');
-            }
+            navigate('/choose-role');
         } catch (err) {
             console.error('Registration error:', err);
             const errorMessage = err.response?.data?.message || err.response?.data || 'Registration failed. Please try again.';
@@ -75,7 +65,7 @@ const Register = () => {
                         <FiUserCheck size={24} />
                     </div>
                     <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>Create Account</h2>
-                    <p style={{ color: 'var(--text-secondary)' }}>Join us to book or list parking spaces</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>Create your account, then choose how you want to use ZoomPark</p>
                 </div>
 
                 {error && (
@@ -89,7 +79,6 @@ const Register = () => {
                 )}
 
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-
                     <div className="form-group" style={{ marginBottom: 0 }}>
                         <label>Full Name</label>
                         <div className="input-group" style={{ position: 'relative' }}>
@@ -151,29 +140,6 @@ const Register = () => {
                                 placeholder="Enter your phone number"
                                 style={{ paddingLeft: '3rem' }}
                             />
-                        </div>
-                    </div>
-
-                    <div className="form-group" style={{ marginBottom: 0 }}>
-                        <label>I want to...</label>
-                        <div className="input-group" style={{ position: 'relative' }}>
-                            <select
-                                name="role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                style={{
-                                    appearance: 'none',
-                                    padding: '0.75rem 1rem',
-                                    width: '100%',
-                                    background: 'var(--bg-primary)',
-                                    color: 'var(--text-primary)',
-                                    borderRadius: 'var(--radius-md)',
-                                    border: '1px solid var(--bg-tertiary)'
-                                }}
-                            >
-                                <option value="CUSTOMER">🚗 Book Parking Spaces</option>
-                                <option value="OWNER">🅿️ List My Parking Space</option>
-                            </select>
                         </div>
                     </div>
 

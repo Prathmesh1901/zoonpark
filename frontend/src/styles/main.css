@@ -116,6 +116,14 @@ button {
   letter-spacing: -0.025em;
 }
 
+.nav-logo-img {
+  width: 170px;
+  height: 58px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-md);
+}
+
 .nav-menu {
   display: flex;
   gap: 2rem;
@@ -285,6 +293,87 @@ textarea:focus {
   max-width: 500px;
 }
 
+.choice-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 760px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.choice-panel h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.choice-subtitle {
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.choice-card {
+  min-height: 230px;
+  padding: 1.5rem;
+  border: 1px solid var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+
+.choice-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+  border-color: #94A3B8;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.choice-card:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.choice-kicker {
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.choice-card strong {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.choice-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.choice-action {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
 /* Status Badges */
 .status {
   padding: 0.25rem 0.75rem;
@@ -405,6 +494,19 @@ textarea:focus {
   .nav-link {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-panel {
+    padding: 1.5rem;
+  }
+
+  .nav-logo-img {
+    width: 140px;
+    height: 50px;
   }
 }
 
@@ -604,6 +706,16 @@ textarea:focus {
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+}
+
+.footer-logo {
+  width: 180px;
+  height: 62px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1.5rem;
+  background: white;
+  border-radius: var(--radius-md);
 }
 
 .footer-links li {

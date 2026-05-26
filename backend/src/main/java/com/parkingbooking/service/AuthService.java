@@ -149,4 +149,27 @@ public class AuthService {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
+
+    public AuthResponse updateCurrentUserRole(String roleName) {
+        if (!"CUSTOMER".equals(roleName) && !"OWNER".equals(roleName)) {
+            throw new RuntimeException("Invalid account type");
+        }
+
+        User user = getCurrentUser();
+        Role role = roleRepository.findByName(roleName)
+                .orElseThrow(() -> new RuntimeException("Role not found: " + roleName));
+
+        user.setRole(role);
+        user.setIsApproved(true);
+        User savedUser = userRepository.save(user);
+
+        String token = jwtTokenProvider.generateTokenFromEmail(savedUser.getEmail());
+        return new AuthResponse(
+                token,
+                savedUser.getId(),
+                savedUser.getEmail(),
+                savedUser.getFullName(),
+                savedUser.getRole().getName(),
+                savedUser.getIsApproved());
+    }
 }

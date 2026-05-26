@@ -5,6 +5,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 import Navbar from './components/common/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import ChooseRole from './components/auth/ChooseRole';
 import Home from './components/Home';
 import SearchParking from './components/parking/SearchParking';
 import BookingPage from './components/booking/BookingPage';
@@ -39,6 +40,14 @@ function App() {
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
                             <Route path="/search" element={<SearchParking />} />
+                            <Route
+                                path="/choose-role"
+                                element={
+                                    <ProtectedRoute>
+                                        <ChooseRole />
+                                    </ProtectedRoute>
+                                }
+                            />
 
                             {/* Protected Routes - Require Authentication */}
                             <Route

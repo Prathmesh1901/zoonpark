@@ -57,6 +57,17 @@ const authService = {
         return response.data;
     },
 
+    updateRole: async (role) => {
+        const response = await api.put('/auth/role', { role });
+
+        if (response.data.token) {
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', JSON.stringify(response.data));
+        }
+
+        return response.data;
+    },
+
     /**
      * Logout user
      * 

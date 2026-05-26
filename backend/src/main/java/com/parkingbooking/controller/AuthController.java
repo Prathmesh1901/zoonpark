@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.Map;
 
 /**
  * AuthController - REST API endpoints for authentication
@@ -128,6 +129,16 @@ public class AuthController {
             return ResponseEntity.ok(user);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/role")
+    public ResponseEntity<?> updateRole(@RequestBody Map<String, String> request) {
+        try {
+            AuthResponse response = authService.updateCurrentUserRole(request.get("role"));
+            return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }
