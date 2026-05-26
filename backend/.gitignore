@@ -1,0 +1,23 @@
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Idea / VS Code
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Application / Env
+application-prod.properties
+*.env
+server_log.txt
+
+# Local History for Visual Studio Code
+.history/
