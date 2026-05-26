@@ -117,8 +117,8 @@ button {
 }
 
 .nav-logo-img {
-  width: 170px;
-  height: 58px;
+  width: 230px;
+  height: 76px;
   object-fit: cover;
   object-position: center;
   border-radius: var(--radius-md);
@@ -593,8 +593,8 @@ textarea:focus {
   }
 
   .nav-logo-img {
-    width: 140px;
-    height: 50px;
+    width: 170px;
+    height: 58px;
   }
 }
 
@@ -797,8 +797,8 @@ textarea:focus {
 }
 
 .footer-logo {
-  width: 180px;
-  height: 62px;
+  width: 240px;
+  height: 80px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 1.5rem;
