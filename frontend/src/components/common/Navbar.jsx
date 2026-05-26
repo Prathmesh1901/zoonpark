@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     FiHome, FiSearch, FiCalendar, FiUser,
-    FiLogOut, FiMap, FiMenu, FiX, FiGrid
+    FiLogOut, FiMap, FiMenu, FiX, FiGrid, FiMoon, FiSun
 } from 'react-icons/fi';
 import { FaCarSide } from 'react-icons/fa';
 import logo from '../../assets/logg.png';
@@ -21,7 +21,13 @@ import logo from '../../assets/logg.png';
 const Navbar = () => {
     const { user, logout, isAuthenticated } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
     const location = useLocation();
+
+    React.useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     const handleLogout = () => {
         logout();
@@ -29,6 +35,7 @@ const Navbar = () => {
     };
 
     const toggleMenu = () => setIsOpen(!isOpen);
+    const toggleTheme = () => setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark');
 
     const isActive = (path) => location.pathname === path ? 'active' : '';
 
@@ -109,6 +116,20 @@ const Navbar = () => {
                                     <FiUser />
                                     <span>{user.fullName}</span>
                                 </div>
+                            </li>
+
+                            <li>
+                                <motion.button
+                                    type="button"
+                                    onClick={toggleTheme}
+                                    className="theme-toggle-btn"
+                                    aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                                    title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    {theme === 'dark' ? <FiSun /> : <FiMoon />}
+                                </motion.button>
                             </li>
 
                             <li>

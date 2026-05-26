@@ -41,6 +41,23 @@
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:root[data-theme='dark'] {
+  --bg-primary: #0B1120;
+  --bg-secondary: #111827;
+  --bg-tertiary: #243044;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --primary: #60A5FA;
+  --primary-hover: #93C5FD;
+  --secondary: #2563EB;
+  --secondary-hover: #1D4ED8;
+  --accent: #93C5FD;
+  --glass-bg: rgba(17, 24, 39, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
 /* Reset & Base Styles */
 * {
   margin: 0;
@@ -145,6 +162,31 @@ button {
 .nav-link.active {
   color: var(--text-primary);
   background: rgba(0, 0, 0, 0.03);
+}
+
+:root[data-theme='dark'] .nav-link:hover,
+:root[data-theme='dark'] .nav-link.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--bg-tertiary);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* Buttons */
@@ -404,6 +446,10 @@ textarea:focus {
   overflow: hidden;
 }
 
+:root[data-theme='dark'] .hero-section {
+  background: linear-gradient(to bottom, #111827 0%, #0B1120 100%);
+}
+
 .hero-section>*:not(.background-ripple-effect) {
   position: relative;
   z-index: 1;
@@ -432,6 +478,31 @@ textarea:focus {
   justify-content: center;
   padding: 1rem 2rem 3rem;
   background: #FFFFFF;
+}
+
+:root[data-theme='dark'] .brand-hover-section,
+:root[data-theme='dark'] .footer,
+:root[data-theme='dark'] .choice-card,
+:root[data-theme='dark'] .offer-card,
+:root[data-theme='dark'] .feature-card,
+:root[data-theme='dark'] .faq-item {
+  background: var(--bg-secondary);
+}
+
+:root[data-theme='dark'] .btn-secondary {
+  background: #1F2937;
+  color: var(--text-primary);
+  border-color: var(--bg-tertiary);
+}
+
+:root[data-theme='dark'] .faq-question:hover {
+  background: #1F2937;
+}
+
+:root[data-theme='dark'] input,
+:root[data-theme='dark'] select,
+:root[data-theme='dark'] textarea {
+  background: #0F172A;
 }
 
 .text-hover-effect {
